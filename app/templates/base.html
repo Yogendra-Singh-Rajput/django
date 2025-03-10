@@ -106,21 +106,21 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="http://localhost:8000/">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ domain }}/">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Services
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="http://localhost:8000/numerology/">Numerology</a></li>
-                  <li><a class="dropdown-item" href="http://localhost:8000/cards/">Cards</a></li>
+                  <li><a class="dropdown-item" href="{{ domain }}/home/numerology/">Numerology</a></li>
+                  <li><a class="dropdown-item" href="{{ domain }}/home/cards/">Cards</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="http://localhost:8000/contact_us/">Contact Us</a></li>
+                  <li><a class="dropdown-item" href="{{ domain }}/home/contact_us/">Contact Us</a></li>
                 </ul>
               </li>
             </ul>
-            <form class="d-flex" role="search" method="POST" action="http://localhost:8000/search/">
+            <form class="d-flex" role="search" method="POST" action="{{ domain }}/home/search/">
                 {% csrf_token %}
               <input class="form-control me-2 mt-1" type="search" placeholder="Search" aria-label="Search" name="searched_item" pattern=".+">
               <button class="btn btn-outline-success bg-dark" type="submit">Search</button>

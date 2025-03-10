@@ -56,6 +56,7 @@ def search_fn(s):
 def home(req,context=context):
     print('Home View Accessed')
     context.update({'services_dict':{'Numerology':'numerology/','Cards':'cards/'}.items()})
+    print(context)
     return render(req,'index.html',context=context)
 
 def search(req,context=context):
