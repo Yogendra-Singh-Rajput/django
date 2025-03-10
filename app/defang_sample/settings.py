@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-r(z^n29_r&ax*%(!la2i*cy@*$2q1h(ulie!%@qy)5j-i9kepw
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    'yogendra-singh-rajput-django.prod1a.defang.dev'
+    'yogendra-singh-rajput-django.prod1a.defang.dev','yogendra-singh-rajput-django--8000.prod1a.defang.dev'
 ]
 
 
