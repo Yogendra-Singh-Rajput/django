@@ -15,6 +15,17 @@
             min-height: 100vh;
             height: 100%;
         }
+        #carouselExampleAutoplaying{
+            margin-bottom: 3%; 
+            width: 45vw;
+            height:40vh;
+        }
+        #carouselExampleAutoplaying img{
+          height:40vh;
+          width:100%;
+          object-fit:cover;
+          border-radius:10px;
+        }
         body{
             margin:0;
             font-family: "Pacifico", cursive;
@@ -50,7 +61,7 @@
         }
         input{
             height: 30px;
-            width:200px;
+            width:60%;
             border-radius: 5px;
             border-width: 3px;
             background-color: beige;
@@ -93,6 +104,37 @@
           background-color: transparent;
           text-decoration: underline;
         }
+
+        @media only screen and (max-width: 600px){
+          #main{
+            position:relative;
+            padding: 2%;
+            padding-top: 2%;
+            min-height: 100vh;
+            height: 100%;
+          }
+          .container{
+            margin-top: 2vh;
+            background-color:rgba(137, 43, 226, 0.715);
+            text-align: center;
+            border-radius: 20px;
+            width: 95vw;
+            margin: auto;
+            font-size: max(1.2vi,10px);
+            color: rgb(70, 226, 43);
+          }
+          #carouselExampleAutoplaying{
+            margin-bottom: 3%; 
+            width: 95vw;
+            height:35vh;
+          }
+
+          #carouselExampleAutoplaying img{
+            height:35vh;
+            width:100%;
+            object-fit:cover;
+          }
+        }
     </style>
     {% block container3_script %}{% endblock container3_script %}
 </head>
@@ -129,19 +171,19 @@
         </div>
       </nav>
     <div id = "main">
-        <div id="carouselExampleAutoplaying" class="carousel slide mx-auto" data-bs-ride="carousel" style="margin-bottom: 3%; width: 60vw;">
+        <div id="carouselExampleAutoplaying" class="carousel slide mx-auto" data-bs-ride="carousel">
             <div class="carousel-inner">
                 {% for i,j,k,l in context_images %}
                     {% if l == 1 %}
                         <div class="carousel-item active">
-                        <a href={{i}}><img src={{k}} class="d-block mx-auto" style="height: 300px;min-width: 260px; width:45vw ;border-radius: 20px;"  alt={{j}}>
+                        <a href={{i}}><img src={{k}} class="d-block mx-auto"   alt={{j}}>
                         <div class="carousel-caption mx-auto" style="color:white;background-color: rgba(165, 42, 42, 0.634); width:fit-content; padding: 1%; padding-top: 0.4%; padding-bottom: 0.4%; border-radius: 30px;" >
                             <h5 style="margin-bottom: 0.4%; margin-top: 0.4%;">{{j}}</h5>
                         </div></a>
                         </div>
                     {% else %}
                     <div class="carousel-item">
-                      <a href={{i}}><img src={{k}} class="d-block mx-auto" style="height: 300px;min-width: 260px; width:45vw ;border-radius: 20px;"  alt={{j}}></a>
+                      <a href={{i}}><img src={{k}} class="d-block mx-auto"  alt={{j}}></a>
                       <div class="carousel-caption mx-auto" style="color:white;background-color: rgba(165, 42, 42, 0.634); width:fit-content; padding: 1%; padding-top: 0.4%; padding-bottom: 0.4%; border-radius: 30px;" >
                           <h5 style="margin-bottom: 0.4%; margin-top: 0.4%;">{{j}}</h5>
                         </div></a>
