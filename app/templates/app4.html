@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block title %}
-Loshu Cube - Generator
+Find Your Green and Red Flags
 {% endblock title %}
 
 {% block container1 %}
-<h1>Loshu Generator</h1>
+<h1>Find Your Green & Red Flags</h1>
 {% endblock container1 %}
 
 {% block container2 %}
 <form action="" method="POST">
     {% csrf_token %}
-    <label for="dob1">Date of Birth &nbsp</label>
-    <input type="date" name="dob1"  max="9999-12-31" required><br><br>
+    <label for="dob">Date of Birth &nbsp</label>
+    <input type="date" name="dob"  max="9999-12-31" required><br><br>
     <input type="submit" value="Submit" class="buttons" id="button1">
 </form>
 {% endblock container2 %}

@@ -24,9 +24,12 @@ def home(req,context=context):
         'apps':[
             ('Soulmate Date of Birth Finder - Loshu Cube','app1/'),
             ('Loshu Cube - Compatibility Checker','app2/'),
-            ('Loshu Cube Generator','app3/')
+            ('Loshu Cube Generator','app3/'),
+            ('Find Your Green & Red Flags', 'app4/')
             ]
     })
+    context['n']=0
+    print(context)
     return render(req,'numerology_home.html',context=context)
 
 # Soulmate Date of Birth Finder - Loshu Cube
@@ -86,7 +89,7 @@ def app1(req,context=context):
         compatibility=int(req.POST['r3'])
         variable, variable1 = fn(name,dob)
         final_list,n=app1_fn(dob,r1=r1,r2=r2,comp=compatibility)
-        
+        print(f"Name - {name} || App - Soulmate Finder || Date of Birth - {dob}")
         context.update({
             'variable':variable,
             'variable1':variable1,
@@ -97,12 +100,14 @@ def app1(req,context=context):
             'r2':r2,
             'compatibility':compatibility
             })
+        # print(context)
         return render(req,'app1_results.html',context=context)
     return render(req,'app1.html',context=context)
     #return HttpResponse(f'<h1>Welecome to Numerology App 1 Page</h1>')
 
 # Loshu Cube - Compatibility Checker
 def app2(req,context=context):
+    context['n']=0
     def app2_fn(dob1,dob2):
         dob1_day=dt.strptime(dob1,'%Y-%m-%d').day
         dob2_day=dt.strptime(dob2,'%Y-%m-%d').day
@@ -124,15 +129,20 @@ def app2(req,context=context):
                 context.update({f'num{i+1}':"-"})
         return round(comp,2)
     if req.method=="POST":
+        name1 = req.POST['name1']
+        name2 = req.POST['name2']
         dob1=req.POST['dob1']
         dob2=req.POST['dob2']
         comp = app2_fn(dob1,dob2)
+        print(f"Name1 - {name1} || Name2 - {name2} || App - Compatibility Checker || Date of Birth 1 - {dob1} || Date of Birth 2 - {dob2} || Compatibility - {comp}%")
         context.update({'comp':f"Compatibility Score - {comp}%"})
+        # print(context)
         return render(req,'app2_results.html',context=context)
     return render(req,'app2.html',context=context)
 
 # Loshu Cube - Generator
 def app3(req,context=context):
+    context['n']=0
     def app3_fn(dob1):
         dob1_day=dt.strptime(dob1,'%Y-%m-%d').day
         
@@ -151,13 +161,28 @@ def app3(req,context=context):
     if req.method=="POST":
         dob1=req.POST['dob1']
         comp = app3_fn(dob1)
+        print(context)
         return render(req,'app3_results.html',context=context)
     return render(req,'app3.html',context=context)
 
+def app4(req,context=context):
+    context['n']=0
+    def app4_fn(dob):
+        dob_day=dt.strptime(dob,'%Y-%m-%d').day
+        res = mul(dob_day)
+        return res
+    if req.method=="POST":
+        dob=req.POST['dob']
+        res = app4_fn(dob)
+        print(f"App - Green Red Flag || Date of Birth - {dob}")
+        context['res_mul']=res
+        return render(req,'app4_results.html',context=context)
+    return render(req,'app4.html',context=context)
 
 
 list_numerology_apps = [
     ['Soulmate Date of Birth Finder - Loshu Cube','../numerology/app1'],
     ['Loshu Cube - Compatibility Checker','../numerology/app2'],
-    ['Loshu Cube Generator','../numerology/app3']
+    ['Loshu Cube Generator','../numerology/app3'],
+    ['Find Your Green & Red Flags', '../numerology/app4']
 ]

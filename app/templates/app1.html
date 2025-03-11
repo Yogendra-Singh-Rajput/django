@@ -12,17 +12,17 @@ Soulmate Date of Birth Finder - Loshu Cube
 <form action="" method="POST">
     {% csrf_token %}
     <label for="Name">Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-    <input type="text" placeholder="Enter Name" name="name"><br><br>
+    <input type="text" placeholder="Enter Name" name="name" required><br><br>
     <label for="dob">Date of Birth &nbsp</label>
-    <input type="date" name="dob"  max="9999-12-31"><br><br>
+    <input type="date" name="dob"  max="9999-12-31" required><br><br>
     <label for="r1">Soulmate can be </label>
-    <input type="number" name="r1" id="r1" max="10" min="0" value="5" style="height: 25px; width: 40px;">
+    <input type="number" name="r1" id="r1" max="10" min="0" value="5" style="height: 25px; width: 40px;" required>
     <label for="r1">years younger.</label><br><br>
     <label for="r2">Soulmate can be </label>
-    <input type="number" name="r2" id="r2" max="10" min="0" value="5" style="height: 25px; width: 40px;">
+    <input type="number" name="r2" id="r2" max="10" min="0" value="5" style="height: 25px; width: 40px;" required>
     <label for="r2">years older.</label><br><br>
     <label for="r3">Compatibility</label>
-    <input type="number" name="r3" id="r3" max="100" min="1" value="100" style="height: 25px; width: 60px;"><br><br>
+    <input type="number" name="r3" id="r3" max="100" min="1" value="100" style="height: 25px; width: 60px;" required><br><br>
     <input type="submit" value="Submit" class="buttons" id="button1">
 </form>
 {% endblock container2 %}
