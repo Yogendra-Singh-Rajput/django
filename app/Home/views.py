@@ -74,3 +74,9 @@ def contact_us(req, context=context):
             context['flag']=True
             return render(req,'contact_us.html',context=context)
     return render(req, 'contact_us.html', context=context)
+
+def about(req, context = context):
+    return render(req,'about.html', context=context)
+
+def cards(req, context = context):
+    return render(req,'cards.html', context=context)
